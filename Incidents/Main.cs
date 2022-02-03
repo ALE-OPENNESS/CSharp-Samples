@@ -39,16 +39,23 @@ namespace Incidents
             IAnalytics analyticService = myApplication.AnalyticsService;
 
             List<Incident> incidents = await analyticService.GetIncidentsAsync(7);
-
-            foreach(Incident incident in incidents)
+            if (incidents != null)
             {
-                dataGridView1.Rows.Add(new Object[]
+                foreach (Incident incident in incidents)
                 {
-                    incident.Id,
-                    incident.Date,
-                    incident.Severity,
-                    incident.Description
-                }) ;
+                    dataGridView1.Rows.Add(new Object[]
+                    {
+                        incident.Id,
+                        incident.Date,
+                        incident.Severity,
+                        incident.Description
+                    });
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unable to retrieve incidents, maybe the OmniPCX Enterprise is not secured. Please check O2G configuration and preequisites to use the Analytics service", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -60,27 +67,37 @@ namespace Incidents
                 PrivateAddress = "enter_the_o2g_server_address"
             });
 
-            await myApplication.LoginAsync("_admin_login_name", "_admin_login_paswword");
+            try
+            {
+                await myApplication.LoginAsync("_admin_login_name", "_admin_login_paswword");
 
 
-            dataGridView1.ColumnCount = 4;
-            dataGridView1.Columns[0].Name = "Incident";
-            dataGridView1.Columns[0].ValueType = typeof(int);
+                dataGridView1.ColumnCount = 4;
+                dataGridView1.Columns[0].Name = "Incident";
+                dataGridView1.Columns[0].ValueType = typeof(int);
 
-            dataGridView1.Columns[1].Name = "Date";
-            dataGridView1.Columns[1].ValueType = typeof(DateTime);
+                dataGridView1.Columns[1].Name = "Date";
+                dataGridView1.Columns[1].ValueType = typeof(DateTime);
 
-            dataGridView1.Columns[2].Name = "Severity";
-            dataGridView1.Columns[2].ValueType = typeof(int);
+                dataGridView1.Columns[2].Name = "Severity";
+                dataGridView1.Columns[2].ValueType = typeof(int);
 
-            dataGridView1.Columns[3].Name = "Description";
+                dataGridView1.Columns[3].Name = "Description";
 
-            LoadDataFromOXE();
+                LoadDataFromOXE();
+            }
+            catch (O2GException ex)
+            {
+                MessageBox.Show("Unable to connect. Please check O2G configuration",
+                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        /*
         private async void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             await myApplication.ShutdownAsync();
         }
+        */
     }
 }
