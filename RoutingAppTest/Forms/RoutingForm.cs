@@ -195,10 +195,12 @@ namespace RoutingAppTest
                 {
                     await _o2gApp.RoutingService.OverflowOnVoiceMailAsync(newOverflow.Condition.Value);
                 }
+                /*
                 else if (newOverflow.Destination == Destination.Associate)
                 {
                     await _o2gApp.RoutingService.OverflowOnAssociateAsync(newOverflow.Condition.Value);
                 }
+                */
                 else
                 {
                     await _o2gApp.RoutingService.CancelOverflowAsync();

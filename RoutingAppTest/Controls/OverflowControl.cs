@@ -56,14 +56,17 @@ namespace RoutingAppTest
             {
                 labelNoForward.Visible = false;
                 buttonCancel.Visible = true;
+                forwardIcon.Image = RoutingAppTest.Properties.Resources.forward_voicemail;
+                /*
                 if (overflow.Destination == Destination.Associate)
                 {
                     forwardIcon.Image = RoutingAppTest.Properties.Resources.forward_associate;
                 }
                 else
                 {
-                    forwardIcon.Image = RoutingAppTest.Properties.Resources.forward_voicemail;
+                    
                 }
+                */
                 forwardIcon.Visible = true;
 
                 labelCondition.Text = FormatCondition(overflow.Condition.Value);

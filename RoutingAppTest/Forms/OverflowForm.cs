@@ -87,6 +87,7 @@ namespace RoutingAppTest
                     Condition = EnumUtil.GetOverflowCondition(cbCondition.SelectedIndex)
                 };
             }
+            /*
             else
             {
                 Overflow = new()
@@ -95,6 +96,7 @@ namespace RoutingAppTest
                     Condition = EnumUtil.GetOverflowCondition(cbCondition.SelectedIndex)
                 };
             }
+            */
         }
 
         private void OverflowForm_Load(object sender, EventArgs e)
@@ -105,10 +107,12 @@ namespace RoutingAppTest
                 {
                     rbVoiceMail.Checked = true;
                 }
+                /*
                 else if (Overflow.Destination == Destination.Associate)
                 {
                     rbAssociate.Checked = true;
                 }
+                */
                 else
                 {
                     rbNone.Checked = true;
