@@ -4,7 +4,7 @@
 This repository contains sample applications built with the CSharp SDK.
 
 ## RoutingAppTest
-This test application use the routing service and listen events. 
+This test application uses the routing service and listen events. 
 The user enters his login, password and the O2G server address and a routing application is displayed.
 
 Please note the O2G server FQDN must be known in your DNS. As an alternative, you can configure the O2G server in the hosts file (C:\Windows\System32\drivers\etc on Windows).
