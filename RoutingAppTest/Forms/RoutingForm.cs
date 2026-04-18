@@ -53,7 +53,7 @@ namespace RoutingAppTest
         {
             // Load the user information
             IUsers usersService = _o2gApp.UsersService;
-            User = await usersService.GetByLoginNameAsync(_o2gApp.LoginName);
+            User = await usersService.GetByLoginNameAsync(_o2gApp.Account.LoginName);
 
             // Initialize data
             labelName.Text = string.Format("{0} {1}", User.FirstName, User.LastName).Trim();

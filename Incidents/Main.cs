@@ -93,11 +93,9 @@ namespace Incidents
             }
         }
 
-        /*
         private async void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             await myApplication.ShutdownAsync();
         }
-        */
     }
 }

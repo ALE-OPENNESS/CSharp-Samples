@@ -16,7 +16,6 @@ namespace Incidents
         static void Main()
         {
             HttpClientBuilder.DisableSSValidation = true;
-            HttpClientBuilder.TraceREST = true;
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
